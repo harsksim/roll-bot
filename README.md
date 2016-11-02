@@ -29,12 +29,12 @@
 在群消息和私聊中用对收到的消息进行正则匹配，命中后按照规则进行解析并计算骰子点数。  
 
 ### 正则字符串
-> ^[\\./][rR]( ([1-9])[dD]([1-9][0-9]{0,2})(([\\+-])([1-9][0-9]{0,3}))?)?( [\\D]+)?  
-> ^[\\./][rR] ([1-9][0-9]{0,2})( [\\D]+)?
+> 	^[\\./][rR]( ([1-9])[dD]([1-9][0-9]{0,2})(([\\+-])([1-9][0-9]{0,3}))?)?( [\\D]+)?  
+> 	^[\\./][rR] ([1-9][0-9]{0,2})( [\\D]+)?
 
 # 关联地址
-酷Q：[https://cqp.cc/](https://cqp.cc/) 
+酷Q：https://cqp.cc/ 
  
-酷Q C++ SDK：[https://github.com/CoolQ/cqsdk-vc](https://github.com/CoolQ/cqsdk-vc)  
+酷Q C++ SDK：https://github.com/CoolQ/cqsdk-vc  
 
-QQ：[http://im.qq.com/](http://im.qq.com/)
+QQ：http://im.qq.com/
