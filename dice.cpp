@@ -7,6 +7,7 @@ using namespace std;
 CQTool tool;
 string reg="^[\\./][rR]( ([1-9])[dD]([1-9][0-9]{0,2})(([\\+-])([1-9][0-9]{0,3}))?)?( [\\D]+)?";
 string reg2="^[\\./][rR] ([1-9][0-9]{0,2})( [\\D]+)?";
+string reg3="^[\\./][hH]([eE][lL][pP])?";
 int32_t auth;
 unsigned int seed = time(NULL);
 
@@ -19,7 +20,15 @@ int32_t sendDice(int32_t AuthCode, int64_t groupCode, int64_t qqCode, const char
 	// 判断触发key
 	smatch m;
 	string result = "";
-	if (regex_match(reqMsg, m, regex(reg2))) {
+	if (regex_match(reqMsg, m, regex(reg3))) {
+		reqMsg = "命令参考:\r\n[./]r\r\n[./]r 100\r\n[./]r 100 明天下雨\r\n[./]r 2d6\r\n[./]r 2d6+4\r\n[./]r 2d6+4 明天下雨";
+		if (groupCode > 0) {
+			CQ_sendGroupMsg(AuthCode, groupCode, reqMsg.c_str());
+		} else {
+			CQ_sendPrivateMsg(AuthCode, qqCode, reqMsg.c_str());
+		}
+
+	} else if (regex_match(reqMsg, m, regex(reg2))) {
 		string result = rollSingle(m);
 
 		string reason = "";
